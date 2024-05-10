@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "coc-snippets": ">=3.1.10",
+    "coc-clangd": ">=0.30.2",
+    "coc-ccls": ">=0.0.5"
+  }
+}
