@@ -11,4 +11,4 @@
 - zathura
 - borders
 
-** These Will Work On MacOS 14 and/or higher **
+**These Will Work On MacOS 14 and/or higher**
