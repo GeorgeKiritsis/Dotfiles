@@ -1,5 +1,7 @@
 # Macos Gruvbox Productivity Rice
 
+![desktop]/Users/giorgoskir/desktop_wallpapers/Gruv_Rice.png
+
 ## Contents
 
 - iterm2
