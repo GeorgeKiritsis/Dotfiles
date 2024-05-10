@@ -1,6 +1,6 @@
 # Macos Gruvbox Productivity Rice
 
-![desktop]/Users/giorgoskir/desktop_wallpapers/Gruv_Rice.png
+![desktop]desktop_wallpapers/Gruv_Rice.png
 
 ## Contents
 
