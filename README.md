@@ -1,4 +1,4 @@
-# Macos Gruvbox Productivity Rice
+# MacOS Gruvbox Productivity Setup
 
 ![desktop](screenshots/Gruv_Rice.png)
 
