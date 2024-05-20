@@ -43,3 +43,7 @@ keymap.set("n", "<C-]>", ":m .+1<CR>==", { noremap = true, silent = true })
 
 vim.opt.wrap = true
 
+
+-- Markdown Files
+
+keymap.set("n", "<leader>mp", "<cmd>MarkdownPreview<CR>",{desc = "Open Markdown Preview" }) -- increment
