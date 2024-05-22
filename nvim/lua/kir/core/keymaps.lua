@@ -47,3 +47,7 @@ vim.opt.wrap = true
 -- Markdown Files
 
 keymap.set("n", "<leader>mp", "<cmd>MarkdownPreview<CR>",{desc = "Open Markdown Preview" }) -- increment
+
+-- Undo Tree
+
+keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<CR>", {desc = "Toggle Undo Tree"})
