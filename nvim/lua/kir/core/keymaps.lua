@@ -28,6 +28,9 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
+--Open Terminals (Mainly For Zathura)
+keymap.set("n", "<leader>stv", ":vsplit<CR>:terminal<CR>", { desc = "Split window vertically and open terminal" })
+keymap.set("n", "<leader>sth", ":split<CR>:terminal<CR>", { desc = "Split window horizontally and open terminal" })
 
 -- Exit terminal mode
 keymap.set("t", "<leader>tx", "<C-\\><C-n>", { desc = "Exit terminal mode" })
