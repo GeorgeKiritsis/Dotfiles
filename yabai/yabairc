@@ -29,6 +29,6 @@ yabai -m rule --add app="^System Settings" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
 
-yabai -m config external_bar all:40:0
+yabai -m config external_bar all:35:0
 
 borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0 &

@@ -3,18 +3,19 @@ local settings = require("settings")
 
 local front_app = sbar.add("item", "front_app", {
   display = "active",
-  icon = { drawing = false },
+  icon = { drawing = true},
   label = {
     font = {
-      style = settings.font.style_map["Black"],
+      style = settings.font.style_map["Black"];
       size = 12.0,
     },
+    color = 0xff181819,
   },
   updates = true,
 })
 
 front_app:subscribe("front_app_switched", function(env)
-  front_app:set({ label = { string = env.INFO } })
+  front_app:set({ label = { string = env.INFO, color = colors.bg1 } })
 end)
 
 front_app:subscribe("mouse.clicked", function(env)
