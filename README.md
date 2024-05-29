@@ -1,10 +1,10 @@
 # MacOS Gruvbox Productivity Setup
 
-![desktop](UnixPrn/screen1.png)
+![desktop](screenshots/screen1.png)
 
-![desktop](UnixPrn/screen3.png)
+![desktop](screenshots/screen3.png)
 
-![desktop](UnixPrn/screen2.png)
+![desktop](screenshots/screen2.png)
 
 ## Contents
 
