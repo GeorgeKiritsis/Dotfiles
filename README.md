@@ -1,6 +1,10 @@
 # MacOS Gruvbox Productivity Setup
 
-![desktop](screenshots/Gruv_Rice.png)
+![desktop](UnixPrn/screen1.png)
+
+![desktop](UnixPrn/screen3.png)
+
+![desktop](UnixPrn/screen2.png)
 
 ## Contents
 
