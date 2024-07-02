@@ -1,7 +1,9 @@
 -- set leader key to space
 vim.g.mapleader = " "
 
+
 local keymap = vim.keymap -- for conciseness
+-- ysiw to surround word
 
 ---------------------
 -- General Keymaps -------------------
@@ -9,6 +11,7 @@ local keymap = vim.keymap -- for conciseness
 -- use jk to exit insert mode
 keymap.set("i", "jk", "<ESC>", { expr = true, silent = true })
 
+-- use sw to surround word
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
