@@ -8,8 +8,6 @@ local keymap = vim.keymap -- for conciseness
 ---------------------
 -- General Keymaps -------------------
 
--- use jk to exit insert mode
-keymap.set("i", "jk", "<ESC>", { expr = true, silent = true })
 
 -- use sw to surround word
 -- clear search highlights
@@ -36,7 +34,7 @@ keymap.set("n", "<leader>stv", ":vsplit<CR>:terminal<CR>", { desc = "Split windo
 keymap.set("n", "<leader>sth", ":split<CR>:terminal<CR>", { desc = "Split window horizontally and open terminal" })
 
 -- Exit terminal mode
-keymap.set("t", "<leader>tx", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+keymap.set("t", "jk", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Move current line up
 keymap.set("n", "<C-[>", ":m .-2<CR>==", { noremap = true, silent = true })
