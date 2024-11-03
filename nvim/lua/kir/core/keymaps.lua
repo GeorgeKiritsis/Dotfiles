@@ -56,3 +56,31 @@ keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<CR>", {desc = "Toggle Undo Tre
 -- Toggle Term
 
 keymap.set("n", "<leader>tt", "<cmd>ToggleTerm<CR>", {desc = "Toggle Terminal"})
+
+-- VimTeX configuration for real-time compilation and auto-open Zathura
+
+-- Enable Zathura as the PDF viewer
+vim.g.vimtex_view_method = 'zathura'
+
+-- Set latexmk as the continuous compiler
+vim.g.vimtex_compiler_method = 'latexmk'
+
+-- Automatically open the PDF viewer (Zathura) on opening the TeX file
+vim.g.vimtex_view_automatic = 1
+
+-- Automatically start compilation when editing a .tex file
+vim.g.vimtex_compiler_latexmk = {
+  callback = 1,
+  continuous = 1, -- Enable continuous mode for auto-recompilation on save
+  executable = 'latexmk',
+  options = {
+    '-shell-escape', -- Add extra options if needed
+    '-verbose',
+    '-file-line-error',
+    '-synctex=1',
+    '-interaction=nonstopmode',
+  },
+}
+
+-- Optional: disable quickfix window if you prefer not to see it on error
+vim.g.vimtex_quickfix_mode = 0
