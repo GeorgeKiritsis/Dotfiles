@@ -49,6 +49,9 @@ return {
             function(server_name)
                 lspconfig[server_name].setup({
                     capabilities = capabilities,
+                    cmd_env = {
+                        PYRIGHT_PYTHON_PATH = "/Users/giorgoskir/miniconda3/envs/spyder/bin/python",
+                    },
                 })
             end,
             -- Lua language server with customized settings
@@ -111,28 +114,24 @@ return {
                     },
                 })
             end,
-            -- Python configuration with pyright and stub path support
+            -- Python LSP (Pyright) configuration with cv2 in pkgExtensions
             ["pyright"] = function()
                 lspconfig["pyright"].setup({
                     capabilities = capabilities,
                     settings = {
                         python = {
+                            interpreterPath = "/Users/giorgoskir/miniconda3/envs/spyder/bin/python",
                             analysis = {
-                                typeCheckingMode = "basic",
-                                stubPath = vim.fn.expand("~/.local/share/nvim/stubs"),  -- Updated stub path for `cv2` stubs
-                                autoSearchPaths = true,
-                                useLibraryCodeForTypes = true,
-                                diagnosticMode = "workspace",
-                                extraPaths = { vim.fn.expand("~/.local/share/nvim/stubs") },
-                                extensions = {
-                                    kgAllow = { "cv2" },  -- Add `cv2` to allowed external modules
+                                typeCheckingMode = "basic",  -- Change to "off" or "strict" as needed
+                                extraPaths = {
+                                    "/Users/giorgoskir/miniconda3/envs/spyder/lib/python3.x/site-packages", -- Adjust python3.x as needed
+                                },
+                                pkgExtensions = {
+                                    "cv2",
                                 },
                             },
                         },
                     },
-                    on_attach = function(client, bufnr)
-                        -- Any additional settings for Python LSP can go here
-                    end,
                 })
             end,
         })

@@ -33,8 +33,8 @@ return {
         "jdtls",
         "kotlin_language_server",
         "autotools_ls",
-        "pyright",
         "rust_analyzer",
+        "pyright",
         "texlab",  -- Add texlab here
       },
     })
