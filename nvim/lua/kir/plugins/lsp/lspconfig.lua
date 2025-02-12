@@ -93,7 +93,7 @@ return {
                     },
                 })
             end,
-            -- Clangd configuration with SDL2 support
+            -- Clangd configuration with SDL2 support and query-driver
             ["clangd"] = function()
                 lspconfig["clangd"].setup({
                     capabilities = capabilities,
@@ -103,7 +103,7 @@ return {
                         "--clang-tidy",
                         "--completion-style=detailed",
                         "--compile-commands-dir=" .. vim.fn.getcwd(),
-                        "--query-driver=/usr/bin/clang++,/opt/homebrew/bin/clang++"
+                        "--query-driver=/usr/bin/clang,/usr/bin/clang++,/opt/homebrew/bin/clang++"
                     },
                     settings = {
                         clangd = {
