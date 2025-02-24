@@ -69,15 +69,21 @@ return {
         { name = "nvim_lua" },
       }),
 
-      -- Customize UI for NvChad look
+      -- Restore window borders and completely remove padding
       window = {
         completion = {
           border = "rounded",
           winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+          scrollbar = false,
+          side_padding = 0,
+          top_padding = 0;
         },
         documentation = {
           border = "rounded",
           winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+          scrollbar = false,
+          side_padding = 0,
+          top_padding = 0;
         },
       },
 
