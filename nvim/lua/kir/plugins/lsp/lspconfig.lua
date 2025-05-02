@@ -114,6 +114,22 @@ return {
                     },
                 })
             end,
+            ["intelephense"] = function()
+                lspconfig["intelephense"].setup({
+                    capabilities = capabilities,
+                    settings = {
+                        intelephense = {
+                            files = {
+                                maxSize = 5000000; -- Adjust if working on large codebases
+                            },
+                            environment = {
+                                includePaths = { "./vendor" } -- For Laravel or Composer projects
+                            },
+                        },
+                    },
+                })
+            end,
+
             -- Python LSP (Pyright) configuration with cv2 in pkgExtensions
             ["pyright"] = function()
                 lspconfig["pyright"].setup({
