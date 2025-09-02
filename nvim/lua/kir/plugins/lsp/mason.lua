@@ -35,6 +35,8 @@ return {
         "autotools_ls",
         "rust_analyzer",
         "pyright",
+        "glsl_analyzer",
+        "glslls",
         "texlab",  -- Add texlab here
       },
     })

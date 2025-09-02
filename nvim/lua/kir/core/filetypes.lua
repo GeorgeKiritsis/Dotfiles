@@ -1,6 +1,3 @@
-require("kir.core")
-require("kir.lazy")
-
 vim.filetype.add({
   extension = {
     vs = "glsl",
@@ -9,5 +6,3 @@ vim.filetype.add({
     cm = "glsl",
   },
 })
-
-

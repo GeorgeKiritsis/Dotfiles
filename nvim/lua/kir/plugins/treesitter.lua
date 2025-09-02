@@ -39,6 +39,7 @@ return {
         "python",
         "java",
         "nasm",
+        "glsl"
       },
       incremental_selection = {
         enable = true,
