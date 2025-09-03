@@ -114,6 +114,15 @@ return {
                     },
                 })
             end,
+
+            ["glslls"] = function()
+                lspconfig["glslls"].setup({
+                    capabilities = capabilities,
+                    cmd = { "glslls", "--target-env=opengl" }, -- same idea
+                    filetypes = {"vs", "fs", "gs" },
+                })
+            end,
+
             ["intelephense"] = function()
                 lspconfig["intelephense"].setup({
                     capabilities = capabilities,
