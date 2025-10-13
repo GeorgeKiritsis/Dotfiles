@@ -119,7 +119,7 @@ return {
                 lspconfig["glslls"].setup({
                     capabilities = capabilities,
                     cmd = { "glslls", "--target-env=opengl" }, -- same idea
-                    filetypes = {"vs", "fs", "gs" },
+                    filetypes = {"vs", "fs", "gs", "shader"},
                 })
             end,
 
