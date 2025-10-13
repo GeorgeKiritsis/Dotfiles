@@ -4,5 +4,6 @@ vim.filetype.add({
     fs = "glsl",
     gm = "glsl",
     cm = "glsl",
+    shader = "glsl"
   },
 })
