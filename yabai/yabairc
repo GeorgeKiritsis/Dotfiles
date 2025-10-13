@@ -29,6 +29,7 @@ yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^game$" manage=off
 yabai -m rule --add app="^Renderer$" manage=off
+yabai -m rule --add app="^Sandbox$" manage=off
 yabai -m rule --add app="^Demo$" manage=off
 yabai -m rule --add app="^chip8$" manage=off
 yabai -m rule --add app="^python$" manage=off
