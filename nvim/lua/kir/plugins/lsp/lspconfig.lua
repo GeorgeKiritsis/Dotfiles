@@ -93,7 +93,7 @@ return {
                     },
                 })
             end,
-            -- Clangd configuration with SDL2 support and query-driver
+
             ["clangd"] = function()
                 lspconfig["clangd"].setup({
                     capabilities = capabilities,

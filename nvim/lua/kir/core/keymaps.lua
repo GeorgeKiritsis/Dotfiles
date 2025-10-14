@@ -23,7 +23,43 @@ keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) 
 keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
-keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
+
+-- keymaps.lua
+
+local resize_mode = false
+
+local function resize_left()  vim.cmd("vertical resize -2") end
+local function resize_right() vim.cmd("vertical resize +2") end
+local function resize_up()    vim.cmd("resize -2") end
+local function resize_down()  vim.cmd("resize +2") end
+
+-- toggle resize mode
+vim.keymap.set("n", "<leader>r", function()
+  resize_mode = not resize_mode
+  if resize_mode then
+    print("🪟 Resize mode ON — use h/j/k/l to resize")
+  else
+    print("🚪 Resize mode OFF")
+  end
+end, { desc = "Toggle resize mode" })
+
+-- when resize mode is ON, hjkl resize; otherwise they act normally
+vim.keymap.set("n", "h", function()
+  if resize_mode then resize_left() else vim.cmd("normal! h") end
+end, {silent = true})
+
+vim.keymap.set("n", "l", function()
+  if resize_mode then resize_right() else vim.cmd("normal! l") end
+end, {silent = true})
+
+vim.keymap.set("n", "k", function()
+  if resize_mode then resize_up() else vim.cmd("normal! k") end
+end, {silent = true})
+
+vim.keymap.set("n", "j", function()
+  if resize_mode then resize_down() else vim.cmd("normal! j") end
+end, {silent = true})
+
 keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
