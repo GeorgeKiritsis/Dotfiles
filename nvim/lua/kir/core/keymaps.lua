@@ -24,7 +24,11 @@ keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- 
 keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
 
--- keymaps.lua
+
+--TODO: turn this into a standalone plugin winres.lua
+--------------------------------------------------
+-- 🪟 Resize Mode (toggleable window resizing)
+--------------------------------------------------
 
 local resize_mode = false
 
@@ -33,33 +37,39 @@ local function resize_right() vim.cmd("vertical resize +2") end
 local function resize_up()    vim.cmd("resize -2") end
 local function resize_down()  vim.cmd("resize +2") end
 
--- toggle resize mode
-vim.keymap.set("n", "<leader>r", function()
-  resize_mode = not resize_mode
+-- 🧭 Display helper message
+local function resize_status()
   if resize_mode then
-    print("🪟 Resize mode ON — use h/j/k/l to resize")
+    print("🪟 Resize mode ON — use h/j/k/l to resize, <leader>r to exit")
   else
     print("🚪 Resize mode OFF")
   end
+end
+
+-- 🔄 Toggle resize mode
+vim.keymap.set("n", "<leader>r", function()
+  resize_mode = not resize_mode
+  resize_status()
 end, { desc = "Toggle resize mode" })
 
--- when resize mode is ON, hjkl resize; otherwise they act normally
-vim.keymap.set("n", "h", function()
-  if resize_mode then resize_left() else vim.cmd("normal! h") end
-end, {silent = true})
+-- 🎛️ Motion keys — preserve counts when resize mode is off
+local function smart_motion(key, resize_fn)
+  vim.keymap.set("n", key, function()
+    if resize_mode then
+      resize_fn()
+    else
+      -- Respect numeric prefix counts (e.g. 14k)
+      vim.cmd('normal! ' .. vim.v.count1 .. key)
+    end
+  end, { silent = true, desc = "Smart motion or resize" })
+end
 
-vim.keymap.set("n", "l", function()
-  if resize_mode then resize_right() else vim.cmd("normal! l") end
-end, {silent = true})
-
-vim.keymap.set("n", "k", function()
-  if resize_mode then resize_up() else vim.cmd("normal! k") end
-end, {silent = true})
-
-vim.keymap.set("n", "j", function()
-  if resize_mode then resize_down() else vim.cmd("normal! j") end
-end, {silent = true})
-
+-- Bind hjkl with smart motion behavior
+smart_motion("h", resize_left)
+smart_motion("j", resize_down)
+smart_motion("k", resize_up)
+smart_motion("l", resize_right)
+--===============================================================================
 keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
