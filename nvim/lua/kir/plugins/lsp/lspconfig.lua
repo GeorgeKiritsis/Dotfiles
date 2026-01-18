@@ -141,23 +141,20 @@ return {
 
             -- Python LSP (Pyright) configuration with cv2 in pkgExtensions
             ["pyright"] = function()
-                lspconfig["pyright"].setup({
-                    capabilities = capabilities,
-                    settings = {
-                        python = {
-                            interpreterPath = "/Users/giorgoskir/miniconda3/envs/spyder/bin/python",
-                            analysis = {
-                                typeCheckingMode = "basic",  -- Change to "off" or "strict" as needed
-                                extraPaths = {
-                                    "/Users/giorgoskir/miniconda3/envs/spyder/lib/python3.x/site-packages", -- Adjust python3.x as needed
-                                },
-                                pkgExtensions = {
-                                    "cv2",
-                                },
-                            },
-                        },
+              lspconfig["pyright"].setup({
+                capabilities = capabilities,
+                settings = {
+                  python = {
+                    -- This is the most important line for the editor to "find" your libs
+                    pythonPath = "/Users/giorgoskir/miniconda3/envs/spyder/bin/python",
+                    analysis = {
+                      autoSearchPaths = true,
+                      useLibraryCodeForTypes = true,
+                      typeCheckingMode = "basic",
                     },
-                })
+                  },
+                },
+              })
             end,
         })
     end,
