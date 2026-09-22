@@ -31,49 +31,51 @@ local remaining_time = sbar.add("item", {
 
 
 battery:subscribe({"routine", "power_source_change", "system_woke"}, function()
-  sbar.exec("pmset -g batt", function(batt_info)
+  sbar.exec("pmset -g batt | grep -o '[0-9]*%'", function(batt_pct)
     local icon = "!"
     local label = "?"
 
-    local found, _, charge = batt_info:find("(%d+)%%")
-    if found then
-      charge = tonumber(charge)
+    local charge = batt_pct and tonumber(batt_pct:match("(%d+)"))
+    if charge then
       label = charge .. "%"
     end
 
     local color = colors.green
-    local charging, _, _ = batt_info:find("AC Power")
 
-    if charging then
-      icon = icons.battery.charging
-    else
-      if found and charge > 80 then
-        icon = icons.battery._100
-      elseif found and charge > 60 then
-        icon = icons.battery._75
-      elseif found and charge > 40 then
-        icon = icons.battery._50
-      elseif found and charge > 20 then
-        icon = icons.battery._25
-        color = colors.orange
+    sbar.exec("pmset -g batt | head -1", function(source_info)
+      local charging = source_info and source_info:find("AC Power")
+
+      if charging then
+        icon = icons.battery.charging
       else
-        icon = icons.battery._0
-        color = colors.red
+        if charge and charge > 80 then
+          icon = icons.battery._100
+        elseif charge and charge > 60 then
+          icon = icons.battery._75
+        elseif charge and charge > 40 then
+          icon = icons.battery._50
+        elseif charge and charge > 20 then
+          icon = icons.battery._25
+          color = colors.orange
+        else
+          icon = icons.battery._0
+          color = colors.red
+        end
       end
-    end
 
-    local lead = ""
-    if found and charge < 10 then
-      lead = "0"
-    end
+      local lead = ""
+      if charge and charge < 10 then
+        lead = "0"
+      end
 
-    battery:set({
-      icon = {
-        string = icon,
-        color = color
-      },
-      label = { string = lead .. label },
-    })
+      battery:set({
+        icon = {
+          string = icon,
+          color = color
+        },
+        label = { string = lead .. label },
+      })
+    end)
   end)
 end)
 
