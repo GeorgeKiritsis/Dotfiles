@@ -38,14 +38,14 @@ ctrl + cmd - l : yabai -m window --warp east
 shift + cmd - p : yabai -m window --space prev;
 shift + cmd - n : yabai -m window --space next;
 
-# move window to space #
-shift + cmd - 1 : yabai -m window --space 1;
-shift + cmd - 2 : yabai -m window --space 2;
-shift + cmd - 3 : yabai -m window --space 3;
-shift + cmd - 4 : yabai -m window --space 4;
-shift + cmd - 5 : yabai -m window --space 5;
-shift + cmd - 6 : yabai -m window --space 6;
-shift + cmd - 7 : yabai -m window --space 7;
+# move window to space # and follow focus
+shift + cmd - 1 : ~/.config/yabai/bin/move-to-space.sh 1
+shift + cmd - 2 : ~/.config/yabai/bin/move-to-space.sh 2
+shift + cmd - 3 : ~/.config/yabai/bin/move-to-space.sh 3
+shift + cmd - 4 : ~/.config/yabai/bin/move-to-space.sh 4
+shift + cmd - 5 : ~/.config/yabai/bin/move-to-space.sh 5
+shift + cmd - 6 : ~/.config/yabai/bin/move-to-space.sh 6
+shift + cmd - 7 : ~/.config/yabai/bin/move-to-space.sh 7
 
 # stop/start/restart yabai
 ctrl + cmd - q : yabai --stop-service

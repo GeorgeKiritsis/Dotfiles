@@ -33,3 +33,6 @@ opt.clipboard:append("unnamedplus")
 
 opt.splitright = true
 opt.splitbelow = true
+
+-- python provider for molten/remote plugins
+vim.g.python3_host_prog = vim.fn.expand("~/miniconda3/envs/spyder/bin/python")

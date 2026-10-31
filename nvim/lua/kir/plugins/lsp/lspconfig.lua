@@ -49,9 +49,6 @@ return {
             function(server_name)
                 lspconfig[server_name].setup({
                     capabilities = capabilities,
-                    cmd_env = {
-                        PYRIGHT_PYTHON_PATH = "/Users/giorgoskir/miniconda3/envs/spyder/bin/python",
-                    },
                 })
             end,
             -- Lua language server with customized settings
@@ -139,23 +136,50 @@ return {
                 })
             end,
 
-            -- Python LSP (Pyright) configuration with cv2 in pkgExtensions
+            -- Python LSP (Pyright) with dynamic conda/venv detection
             ["pyright"] = function()
+              local function get_python_path()
+                local venv = vim.env.VIRTUAL_ENV or vim.env.CONDA_PREFIX
+                if venv then
+                  return venv .. "/bin/python"
+                end
+                local cwd = vim.fn.getcwd()
+                local local_venv = cwd .. "/.venv/bin/python"
+                if vim.fn.executable(local_venv) == 1 then
+                  return local_venv
+                end
+                return "/Users/giorgoskir/miniconda3/envs/spyder/bin/python"
+              end
+
               lspconfig["pyright"].setup({
                 capabilities = capabilities,
                 settings = {
                   python = {
-                    -- This is the most important line for the editor to "find" your libs
-                    pythonPath = "/Users/giorgoskir/miniconda3/envs/spyder/bin/python",
+                    pythonPath = get_python_path(),
                     analysis = {
                       autoSearchPaths = true,
                       useLibraryCodeForTypes = true,
                       typeCheckingMode = "basic",
+                      diagnosticMode = "openFilesOnly",
                     },
                   },
                 },
               })
             end,
+        })
+
+        -- Command to switch Python environment on the fly
+        vim.api.nvim_create_user_command("PyrightSetEnv", function(opts)
+          local path = opts.args
+          local clients = vim.lsp.get_clients({ name = "pyright" })
+          for _, client in ipairs(clients) do
+            client.config.settings.python.pythonPath = path
+            client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+          end
+          vim.notify("Pyright python path: " .. path)
+        end, {
+          nargs = 1,
+          desc = "Set Pyright Python interpreter path",
         })
     end,
 }

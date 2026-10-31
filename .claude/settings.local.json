@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx cap:*)",
+      "Bash(skhd --restart-service)",
+      "Bash(brew services:*)",
+      "Bash(npx http-server:*)",
+      "Bash(open:*)",
+      "Bash(xcrun altool:*)",
+      "Bash(xcodebuild -workspace App/App.xcodeproj/project.xcworkspace -list)",
+      "Bash(sudo xcode-select:*)",
+      "Bash(xcode-select:*)",
+      "Bash(xcodebuild -project App.xcodeproj -list)",
+      "Bash(xcodebuild -scheme App -project App.xcodeproj -configuration Release -destination 'generic/platform=iOS' -archivePath /tmp/EMY.xcarchive archive)",
+      "Bash(xcodebuild -scheme App -project App.xcodeproj -configuration Release -destination 'generic/platform=iOS' -archivePath /tmp/EMY.xcarchive archive -allowProvisioningUpdates)",
+      "Bash(security find-identity:*)",
+      "Bash(security list-keychains:*)",
+      "Bash(security find-certificate:*)",
+      "Bash(xcodebuild -exportArchive -archivePath /tmp/EMY.xcarchive -exportOptionsPlist /tmp/ExportOptions.plist -allowProvisioningUpdates)",
+      "Bash(ls /Users/giorgoskir/Downloads/*.rar)",
+      "Bash(ls /Users/giorgoskir/Downloads/*.zip)",
+      "Bash(brew list:*)",
+      "Bash(brew install:*)",
+      "Bash(unrar x:*)",
+      "Bash(python3 -c \"import rarfile\")",
+      "Bash(pip3 install:*)",
+      "Bash(python3 -c ':*)",
+      "Bash(7z x:*)",
+      "Bash(curl -L \"https://www.rarlab.com/rar/rarmacos-arm-624.tar.gz\" -o /tmp/rar.tar.gz)",
+      "Bash(tar xzf:*)",
+      "Bash(/tmp/rar/unrar x:*)",
+      "Bash(conda info:*)",
+      "Bash(/Users/giorgoskir/miniconda3/envs/spyder/bin/pip install:*)",
+      "Bash(/Users/giorgoskir/miniconda3/envs/spyder/bin/python:*)",
+      "Bash(pkg-config --libs MagickWand)",
+      "Bash(luarocks:*)",
+      "Bash(defaults export:*)",
+      "Bash(plutil -convert xml1 /tmp/iterm_prefs.plist)"
+    ]
+  }
+}
