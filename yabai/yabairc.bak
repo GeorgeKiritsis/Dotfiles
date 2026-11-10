@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# Set default layout
+yabai -m config layout bsp
+
+# New window spawns to the right if vertical split, or bottom if horizontal split
+yabai -m config window_placement second_child
+
+# Padding set to 6px
+yabai -m config top_padding 10 
+yabai -m config bottom_padding 10
+yabai -m config left_padding 10
+yabai -m config right_padding 10
+yabai -m config window_gap 10
+
+# Center mouse on window with focus
+yabai -m config mouse_follows_focus on
+
+# Modifier for clicking and dragging with mouse
+yabai -m config mouse_modifier alt
+# Set modifier + left-click drag to move window
+yabai -m config mouse_action1 move
+# Set modifier + right-click drag to resize window
+yabai -m config mouse_action2 resize
+
+# Disable window management for certain applications
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^game$" manage=off
+yabai -m rule --add app="^Renderer$" manage=off
+yabai -m rule --add app="^Sandbox$" manage=off
+yabai -m rule --add app="^Demo$" manage=off
+yabai -m rule --add app="^chip8$" manage=off
+yabai -m rule --add app="^python$" manage=off
+
+
+# Set external bar height and position
+yabai -m config external_bar all:35:0
+
+# Set opacity for Zathura windows
+yabai -m rule --add app="^Zathura$" opacity=0.5
+
+# Start Yabai borders
+# borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0 &
+

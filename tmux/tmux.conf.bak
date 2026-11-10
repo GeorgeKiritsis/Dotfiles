@@ -1,0 +1,33 @@
+# Unbind the default prefix key
+unbind C-b
+
+# Set the new prefix key to Ctrl + T
+set -g prefix C-t
+bind C-t send-prefix
+
+# --- Custom Split Bindings ---
+
+# Split vertically (side-by-side) with Prefix + v
+bind v split-window -h -c "#{pane_current_path}"
+
+# Split horizontally (top-bottom) with Prefix + h
+bind h split-window -v -c "#{pane_current_path}"
+
+# Unbind default split keys to avoid confusion (optional)
+unbind %
+unbind '"'
+
+# --- Graphics passthrough for kitty image protocol ---
+set -gq allow-passthrough on
+set -g visual-activity off
+
+# --- Plugins ---
+set -g @plugin 'egel/tmux-gruvbox'
+set -g @tmux-gruvbox 'dark' 
+
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'christoomey/vim-tmux-navigator'
+
+# Initialize TPM (Tmux Plugin Manager)
+run '~/.tmux/plugins/tpm/tpm'
