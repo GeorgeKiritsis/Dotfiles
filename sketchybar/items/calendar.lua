@@ -6,16 +6,16 @@ sbar.add("item", { position = "right", width = settings.group_paddings })
 
 local cal = sbar.add("item", {
   icon = {
-    color = colors.white,
-    padding_left = 8,
+    color = colors.grey,
+    padding_left = 12,
     font = {
       style = settings.font.style_map["Black"],
-      size = 12.0,
+      size = 14.0,
     },
   },
   label = {
-    color = colors.white,
-    padding_right = 8,
+    color = colors.yellow,
+    padding_right = 12,
     width = 49,
     align = "right",
     font = { family = settings.font.numbers },
@@ -25,19 +25,10 @@ local cal = sbar.add("item", {
   padding_left = 1,
   padding_right = 1,
   background = {
-    color = colors.bg2,
-    border_color = colors.black,
+    color = colors.bg1,
+    border_color = colors.bg2,
     border_width = 1
   },
-})
-
--- Double border for calendar using a single item bracket
-sbar.add("bracket", { cal.name }, {
-  background = {
-    color = colors.transparent,
-    height = 30,
-    border_color = colors.grey,
-  }
 })
 
 -- Padding item required because of bracket

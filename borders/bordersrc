@@ -1,0 +1,14 @@
+#!/bin/bash
+# JankyBorders, Gruvbox Dark (matches sketchybar, kitty and tmux)
+# Runs as a brew service (brew services start borders), not from yabairc,
+# so there is always exactly one instance
+
+options=(
+  style=round
+  width=2.0
+  hidpi=on
+  active_color=0xfffabd2f   # yellow, like the active space / tmux window
+  inactive_color=0xff3c3836 # same grey as the pill backgrounds
+)
+
+borders "${options[@]}"

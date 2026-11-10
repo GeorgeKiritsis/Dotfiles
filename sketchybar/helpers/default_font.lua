@@ -1,13 +1,13 @@
 return {
-  text = "SF Pro", -- Used for text
-  numbers = "SF Mono", -- Used for numbers
+  text = "IosevkaTerm Nerd Font", -- Used for text
+  numbers = "IosevkaTerm Nerd Font", -- Used for numbers
 
-  -- Unified font style map
+  -- Every style maps to Medium so the whole bar has one uniform weight
   style_map = {
-    ["Regular"] = "Regular",
-    ["Semibold"] = "Semibold",
-    ["Bold"] = "Bold",
-    ["Heavy"] = "Heavy",
-    ["Black"] = "Black",
+    ["Regular"] = "Medium",
+    ["Semibold"] = "Medium",
+    ["Bold"] = "Medium",
+    ["Heavy"] = "Medium",
+    ["Black"] = "Medium",
   }
 }

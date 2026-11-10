@@ -28,6 +28,11 @@ local icons = {
       _0 = "􀛪",
       charging = "􀢋"
     },
+    peripherals = {
+      mouse = "\u{100EA4}",
+      keyboard = "\u{100E91}",
+      charging = "\u{1002E6}",
+    },
     wifi = {
       upload = "􀄨",
       download = "􀄩",
@@ -49,7 +54,7 @@ local icons = {
     apple = "",
     gear = "",
     cpu = "",
-    clipboard = "Missing Icon",
+    clipboard = "\u{F014C}",
 
     switch = {
       on = "󱨥",
@@ -70,12 +75,17 @@ local icons = {
       _0 = "",
       charging = ""
     },
+    peripherals = {
+      mouse = "\u{F037D}",
+      keyboard = "\u{F030C}",
+      charging = "\u{F0E7}",
+    },
     wifi = {
       upload = "",
       download = "",
       connected = "󰖩",
       disconnected = "󰖪",
-      router = "Missing Icon"
+      router = "\u{F0469}"
     },
     media = {
       back = "",

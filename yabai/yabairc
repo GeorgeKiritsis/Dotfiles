@@ -36,11 +36,11 @@ yabai -m rule --add app="^python$" manage=off
 
 
 # Set external bar height and position
-yabai -m config external_bar all:35:0
+yabai -m config external_bar all:42:0
 
 # Set opacity for Zathura windows
 yabai -m rule --add app="^Zathura$" opacity=0.5
 
-# Start Yabai borders
-borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0 &
+# Borders run as a brew service (one instance), config: ~/.config/borders/bordersrc
+# Don't start them here with &: every yabai restart would add another instance
 
