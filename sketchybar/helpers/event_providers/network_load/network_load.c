@@ -25,7 +25,7 @@ int main (int argc, char** argv) {
     // Prepare the event message
     snprintf(trigger_message,
              512,
-             "--trigger '%s' upload='%03d%s' download='%03d%s'",
+             "--trigger '%s' upload='%d %s' download='%d %s'",
              argv[2],
              network.up,
              unit_str[network.up_unit],

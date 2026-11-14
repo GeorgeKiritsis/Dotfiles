@@ -6,12 +6,13 @@
 #include <sys/select.h>
 #include <sys/sysctl.h>
 
-static char unit_str[3][6] = { { " Bps" }, { "KBps" }, { "MBps" }, };
+static char unit_str[4][6] = { { "bps" }, { "Kbps" }, { "Mbps" }, { "Gbps" }, };
 
 enum unit {
   UNIT_BPS,
   UNIT_KBPS,
-  UNIT_MBPS
+  UNIT_MBPS,
+  UNIT_GBPS
 };
 struct network {
   uint32_t row;
@@ -47,6 +48,13 @@ static inline void network_init(struct network* net, char* ifname) {
   }
 }
 
+static inline void set_rate(double bits, int* value, enum unit* unit) {
+  if (bits < 1e3) { *unit = UNIT_BPS; *value = bits; }
+  else if (bits < 1e6) { *unit = UNIT_KBPS; *value = bits / 1e3; }
+  else if (bits < 1e9) { *unit = UNIT_MBPS; *value = bits / 1e6; }
+  else { *unit = UNIT_GBPS; *value = bits / 1e9; }
+}
+
 static inline void network_update(struct network* net) {
   gettimeofday(&net->tv_n, NULL);
   timersub(&net->tv_n, &net->tv_nm1, &net->tv_delta);
@@ -63,28 +71,7 @@ static inline void network_update(struct network* net) {
   double delta_obytes = (double)(net->data.ifmd_data.ifi_obytes - obytes_nm1)
                         / time_scale;
 
-  double exponent_ibytes = log10(delta_ibytes);
-  double exponent_obytes = log10(delta_obytes);
-
-  if (exponent_ibytes < 3) {
-    net->down_unit = UNIT_BPS;
-    net->down = delta_ibytes;
-  } else if (exponent_ibytes < 6) {
-    net->down_unit = UNIT_KBPS;
-    net->down = delta_ibytes / 1000.0;
-  } else if (exponent_ibytes < 9) {
-    net->down_unit = UNIT_MBPS;
-    net->down = delta_ibytes / 1000000.0;
-  }
-
-  if (exponent_obytes < 3) {
-    net->up_unit = UNIT_BPS;
-    net->up = delta_obytes;
-  } else if (exponent_obytes < 6) {
-    net->up_unit = UNIT_KBPS;
-    net->up = delta_obytes / 1000.0;
-  } else if (exponent_obytes < 9) {
-    net->up_unit = UNIT_MBPS;
-    net->up = delta_obytes / 1000000.0;
-  }
+  // report bits per second, like speedtest
+  set_rate(delta_ibytes * 8.0, &net->down, &net->down_unit);
+  set_rate(delta_obytes * 8.0, &net->up, &net->up_unit);
 }
