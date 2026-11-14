@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🍂 My Dotfiles
+# My Dotfiles
 
 **A keyboard-driven, Gruvbox-themed macOS setup**
 
@@ -17,20 +17,20 @@ tiling windows · custom status bar · Neovim IDE · tmux · kitty
 
 ---
 
-## 📑 Contents
+## Contents
 
-- [Overview](#-overview)
-- [Window management: yabai + skhd + borders](#-window-management)
-- [Status bar: SketchyBar](#-status-bar-sketchybar)
-- [Editor: Neovim](#%EF%B8%8F-editor-neovim)
-- [Terminal: kitty + tmux + fish](#-terminal)
-- [Other tools](#-other-tools)
-- [Installation](#-installation)
-- [Gallery](#%EF%B8%8F-gallery)
+- [Overview](#overview)
+- [Window management: yabai + skhd + borders](#window-management)
+- [Status bar: SketchyBar](#status-bar-sketchybar)
+- [Editor: Neovim](#editor-neovim)
+- [Terminal: kitty + tmux + fish](#terminal)
+- [Other tools](#other-tools)
+- [Installation](#installation)
+- [Gallery](#gallery)
 
 ---
 
-## 🧭 Overview
+## Overview
 
 | Component | Tool | Folder |
 |---|---|---|
@@ -51,7 +51,7 @@ tiling windows · custom status bar · Neovim IDE · tmux · kitty
 
 ---
 
-## 🪟 Window management
+## Window management
 
 ### yabai: [`yabai/yabairc`](yabai/yabairc)
 
@@ -88,7 +88,7 @@ tiling windows · custom status bar · Neovim IDE · tmux · kitty
 
 ---
 
-## 📊 Status bar: SketchyBar
+## Status bar: SketchyBar
 
 Written in Lua with [SbarLua](https://github.com/FelixKratz/SbarLua), in [`sketchybar/`](sketchybar). Small C programs ("event providers") feed the live data, so the bar stays light.
 
@@ -97,7 +97,7 @@ Written in Lua with [SbarLua](https://github.com/FelixKratz/SbarLua), in [`sketc
 
 **Left side**
 
-- 🍎 **Apple menu**
+- **Apple menu**
 - **Spaces** with an icon for each open app
 - **Front app** name
 - **App menus** you can click (in [`helpers/menus`](sketchybar/helpers/menus))
@@ -106,25 +106,25 @@ Written in Lua with [SbarLua](https://github.com/FelixKratz/SbarLua), in [`sketc
 
 | Widget | What it shows | Source |
 |---|---|---|
-| 📅 **Calendar** | Date and time | `items/calendar.lua` |
-| 🎵 **Media** | Track that is playing now; popup with playback controls | `items/media.lua` |
-| 🔋 **Battery** | Charge and charging state; popup with time remaining | `items/widgets/battery.lua` |
-| 🎧 **Peripherals** | Battery of Bluetooth and Logitech devices | `items/widgets/peripherals.lua` + `ble_battery`, `logi_battery` |
-| 🔊 **Volume** | Level; click for a slider and output device | `items/widgets/volume.lua` |
-| 📶 **Network** | Upload / download in **bits/s** (Kbps, Mbps), same units as speedtest; popup with SSID, IP, mask and router | `items/widgets/wifi.lua` + `network_load` |
-| 🖥️ **CPU** | Live load graph that turns aqua → yellow → orange → red with load; click opens Activity Monitor | `items/widgets/cpu.lua` + `cpu_load` |
-| 🌦️ **Weather** | Condition icon and temperature from [wttr.in](https://wttr.in) (no API key); popup with feels-like, humidity, wind, sunrise/sunset and the next 4 three-hour slots | `items/widgets/weather.lua` |
+| **Calendar** | Date and time | `items/calendar.lua` |
+| **Media** | Track that is playing now; popup with playback controls | `items/media.lua` |
+| **Battery** | Charge and charging state; popup with time remaining | `items/widgets/battery.lua` |
+| **Peripherals** | Battery of Bluetooth and Logitech devices | `items/widgets/peripherals.lua` + `ble_battery`, `logi_battery` |
+| **Volume** | Level; click for a slider and output device | `items/widgets/volume.lua` |
+| **Network** | Upload / download in **bits/s** (Kbps, Mbps), same units as speedtest; popup with SSID, IP, mask and router | `items/widgets/wifi.lua` + `network_load` |
+| **CPU** | Live load graph that turns aqua → yellow → orange → red with load; click opens Activity Monitor | `items/widgets/cpu.lua` + `cpu_load` |
+| **Weather** | Condition icon and temperature from [wttr.in](https://wttr.in) (no API key); popup with feels-like, humidity, wind, sunrise/sunset and the next 4 three-hour slots | `items/widgets/weather.lua` |
 
 The event providers build on their own when the bar starts (`helpers/makefile`).
 
 ---
 
-## ✏️ Editor: Neovim
+## Editor: Neovim
 
 A full IDE built on [lazy.nvim](https://github.com/folke/lazy.nvim), with one file per plugin in [`nvim/lua/kir/plugins/`](nvim/lua/kir/plugins). The leader key is `Space`.
 
 <details>
-<summary><b>🔌 Plugins</b></summary>
+<summary><b>Plugins</b></summary>
 
 | Area | Plugins |
 |---|---|
@@ -140,7 +140,7 @@ A full IDE built on [lazy.nvim](https://github.com/folke/lazy.nvim), with one fi
 </details>
 
 <details>
-<summary><b>🧠 Language servers and tools (Mason)</b></summary>
+<summary><b>Language servers and tools (Mason)</b></summary>
 
 - **Servers:** `tsserver`, `html`, `cssls`, `lua_ls`, `clangd`, `jdtls`, `kotlin_language_server`, `rust_analyzer`, `pyright`, `glsl_analyzer`, `glslls`, `texlab`, `autotools_ls`
 - **Formatters / linters:** `prettier`, `stylua`, `isort`, `black`, `ruff`, `php-cs-fixer` (PSR-12)
@@ -169,7 +169,7 @@ A full IDE built on [lazy.nvim](https://github.com/folke/lazy.nvim), with one fi
 
 ---
 
-## 💻 Terminal
+## Terminal
 
 ### kitty: [`kitty/kitty.conf`](kitty/kitty.conf)
 
@@ -191,7 +191,7 @@ A full IDE built on [lazy.nvim](https://github.com/folke/lazy.nvim), with one fi
 
 ---
 
-## 🧰 Other tools
+## Other tools
 
 | Tool | Notes |
 |---|---|
@@ -204,7 +204,7 @@ A full IDE built on [lazy.nvim](https://github.com/folke/lazy.nvim), with one fi
 
 ---
 
-## 🚀 Installation
+## Installation
 
 > [!WARNING]
 > These files go straight into `~/.config`. **Back up your current config first.**
@@ -250,7 +250,7 @@ brew services start borders
 
 ---
 
-## 🖼️ Gallery
+## Gallery
 
 <div align="center">
 
@@ -263,5 +263,5 @@ brew services start borders
 ---
 
 <div align="center">
-<sub>Made with ☕ and too many hours tweaking pixels</sub>
+<sub>Made with too many hours tweaking pixels</sub>
 </div>
